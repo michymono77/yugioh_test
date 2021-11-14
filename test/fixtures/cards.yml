@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image_url: MyString
+  desc: MyString
+  type: 
+  race: MyString
+  archetype: MyString
+  amazon_price: MyString
+
+two:
+  name: MyString
+  image_url: MyString
+  desc: MyString
+  type: 
+  race: MyString
+  archetype: MyString
+  amazon_price: MyString
