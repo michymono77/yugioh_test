@@ -7,7 +7,7 @@ one:
   type: 
   race: MyString
   archetype: MyString
-  amazon_price: MyString
+  amazon_price: 1
 
 two:
   name: MyString
@@ -16,4 +16,4 @@ two:
   type: 
   race: MyString
   archetype: MyString
-  amazon_price: MyString
+  amazon_price: 1

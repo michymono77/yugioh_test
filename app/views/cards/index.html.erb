@@ -1,0 +1,10 @@
+<div class="container">
+
+  <h1>Yugioh Cards</h1>
+    <% @cards.each do |card| %>
+      <div class="col-12 col-lg-4">
+      <%= image_tag card.image_url, alt: "card", width: 200 %>
+      <%= card.name %>
+      </div>
+    <% end %>
+</div>

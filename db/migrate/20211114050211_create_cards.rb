@@ -7,7 +7,7 @@ class CreateCards < ActiveRecord::Migration[6.0]
       t.string :type
       t.string :race
       t.string :archetype
-      t.string :amazon_price
+      t.integer :amazon_price
 
       t.timestamps
     end
