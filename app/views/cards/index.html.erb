@@ -1,14 +1,17 @@
 <div class="banner">
   <div class="container">
       <h1>Yu-gi-oh</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <%= link_to decks_path, class: "btn btn-primary" do%>
+    <p>Change your life and learn to duel at one of our campuses around the world.</p>
+    <%= link_to decks_path, class: "btn btn-warning" do%>
       <div>Create your deck</div>
     <% end %>
   </div>
 </div>
 
 <div class="container">
+<br>
+  <h2>Card list</h2>
+  <br>
     <div class="row">
       <% @cards.each do |card| %>
         <div class="col-12 col-lg-4 card-product">
