@@ -1,10 +1,24 @@
-<div class="container">
-
-  <h1>Yugioh Cards</h1>
-    <% @cards.each do |card| %>
-      <div class="col-12 col-lg-4">
-      <%= image_tag card.image_url, alt: "card", width: 200 %>
-      <%= card.name %>
-      </div>
+<div class="banner">
+  <div class="container">
+      <h1>Yu-gi-oh</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <%= link_to decks_path, class: "btn btn-primary" do%>
+      <div>Create your deck</div>
     <% end %>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+      <% @cards.each do |card| %>
+        <div class="col-12 col-lg-4 card-product">
+          <div class="yugioh-card-img">
+            <%= link_to cl_image_tag(card.photo.key, width: 200, crop: :fill, class:"rounded box"), card_path(card)%>
+          </div>
+          <div class="yugioh-card-name card-product-infos">
+            <h2><%= card.name %></h2>
+          </div>
+        </div>
+      <% end %>
+    </div>
 </div>

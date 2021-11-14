@@ -1,2 +1,22 @@
-<h1>Cards#show</h1>
-<p>Find me in app/views/cards/show.html.erb</p>
+<div class="container">
+  <div class="col-12 col-lg-12 card-product-detail mt-3">
+    <div class="yugioh-card-img">
+      <%= cl_image_tag(@card.photo.key, width: 300, crop: :fill, class:"rounded box") %>
+    </div>
+    <div class="yugioh-card-name card-product-infos-detail">
+      <h1><%= @card.name %></h1>
+      <br>
+      <br>
+      <h2>Description: <i><%= @card.desc %></i></h2>
+      <br>
+      <h2>Race: <%= @card.race %></h2>
+      <br>
+      <h2>Price: $<%= @card.amazon_price %></h2>
+      <br>
+      <br>
+      <%= link_to cards_path, class: "btn btn-primary" do%>
+        <div>Go back</div>
+      <% end %>
+    </div>
+  </div>
+</div>

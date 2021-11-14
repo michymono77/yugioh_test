@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>"<%= @deck.name %>" Deck </h1>
+  <br>
+<div class="row">
+  <% if @deck.structures.any? %>
+    <% @deck.structures.each do |structure| %>
+      <div class="img-container col-12 col-lg-4 mt-5">
+      <%= image_tag structure.card.image_url, alt: "card", width: 200 %>
+      <br>
+      <br>
+      <p><%= structure.card.name %></p>
+      <br>
+      <%= link_to deck_structure_path(structure), method: :delete, data: { confirm: "Do you want to delete #{structure.card.name}" } do %>
+                <i class="far fa-trash-alt"></i>
+                <% end %></p>
+      <br>
+      <br>
+      </div>
+    <% end %>
+  <% else %>
+    <i>No cards added yet...</i>
+  <% end %>
+</div>
+<br>
+<%= link_to "Add a card",  new_deck_structure_path(@deck), class:"btn btn-outline-dark" %>
+</br>
+</br>
+<%= link_to decks_path do%>
+<p><i class="fas fa-undo"></i></p>
+<% end %>
+
+</div>

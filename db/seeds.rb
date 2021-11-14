@@ -9,12 +9,13 @@
 require 'json'
 require 'open-uri'
 
-archetype = "Blue-Eyes'"
+
+archetype = "Blue-Eyes"
 url = "https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=#{archetype}"
 card_serialized = URI.open(url).read
-card = JSON.parse(card_serialized)
+yugioh = JSON.parse(card_serialized)
 
-cards = card["data"] # array of cards
+cards = yugioh["data"] # array of cards
 
 puts "Cleaning database..."
 Card.destroy_all
@@ -22,8 +23,10 @@ puts 'database is clean'
 puts 'creating cards'
 
 cards.each do |card|
-  Card.create(name: card["name"], image_url: card["card_images"][0]["image_url"], desc: card["desc"], race: card["race"], archetype: card["archetype"], amazon_price: card["card_prices"][0]["amazon_price"].to_i)
-   puts "Duel! #{card.id} is created"
+  yugioh_card = Card.create(name: card["name"], image_url: card["card_images"][0]["image_url"], desc: card["desc"], race: card["race"], archetype: card["archetype"], amazon_price: card["card_prices"][0]["amazon_price"].to_i)
+  file = URI.open(card["card_images"][0]["image_url"])
+  yugioh_card.photo.attach(io: file, filename: "#{card["name"]}.jpg") # , content_type: 'image/jpg'
+   puts "Duel! #{yugioh_card.id} is created"
 end
 
 puts "done!"

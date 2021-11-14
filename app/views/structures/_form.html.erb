@@ -1,0 +1,9 @@
+<%= simple_form_for [@deck, @structure] do |f| %>
+<%= f.association :card %>
+<%= f.submit "Add", class: 'btn btn-primary' do%>
+<% end %>
+<% end %>
+
+<%= link_to deck_path(@deck) do%>
+<i class="fas fa-undo"></i>
+<% end %>

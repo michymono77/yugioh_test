@@ -1,0 +1,5 @@
+<h1>All Decks</h1>
+  <% @decks.each do |deck| %>
+    <li><%= link_to deck.name, deck_path(deck)%></li>
+  <% end %>
+  <div><%= link_to "Add a deck",  new_deck_path, class:"btn btn-outline-dark" %></div>
